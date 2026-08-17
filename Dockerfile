@@ -14,6 +14,8 @@ RUN apt-get update \
        tesseract-ocr-ara \
        tesseract-ocr-eng \
        libgomp1 \
+       libgl1 \
+       libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
 # Set JVM memory options only after Java installation. Debian's
