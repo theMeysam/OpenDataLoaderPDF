@@ -13,9 +13,9 @@ import gradio as gr
 APP_TITLE = "OpenDataLoader PDF"
 OUTPUT_FORMATS = ["markdown", "json", "html", "text", "pdf", "tagged-pdf"]
 OCR_LANGUAGES = {
-    "Persian + English (recommended)": {"easyocr": "ar,en", "tesseract": "fas+eng"},
+    "Persian + English (recommended)": {"easyocr": "ar,en", "tesseract": "fas,eng"},
     "Persian only": {"easyocr": "ar", "tesseract": "fas"},
-    "Arabic + English": {"easyocr": "ar,en", "tesseract": "ara+eng"},
+    "Arabic + English": {"easyocr": "ar,en", "tesseract": "ara,eng"},
     "English": {"easyocr": "en", "tesseract": "eng"},
 }
 
