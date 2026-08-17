@@ -11,6 +11,7 @@ RUN apt-get update \
        ca-certificates \
        tesseract-ocr \
        tesseract-ocr-fas \
+       tesseract-ocr-ara \
        tesseract-ocr-eng \
        libgomp1 \
     && rm -rf /var/lib/apt/lists/*
