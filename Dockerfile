@@ -23,7 +23,13 @@ ENV JAVA_TOOL_OPTIONS="-Xmx1536m"
 WORKDIR /app
 
 COPY requirements.txt ./
+
+# Install CPU-only PyTorch first. Without this, pip may resolve the default
+# CUDA-enabled PyTorch stack and download several GB of NVIDIA packages even
+# though this CapRover host runs the OCR backend on CPU.
 RUN pip install --upgrade pip \
+    && pip install --index-url https://download.pytorch.org/whl/cpu \
+       torch==2.13.0 torchvision==0.28.0 \
     && pip install -r requirements.txt
 
 COPY app.py ./
