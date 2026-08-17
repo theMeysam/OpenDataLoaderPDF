@@ -6,12 +6,17 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PORT=7860
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends openjdk-17-jre-headless ca-certificates \
+    && apt-get install -y --no-install-recommends \
+       openjdk-17-jre-headless \
+       ca-certificates \
+       tesseract-ocr \
+       tesseract-ocr-fas \
+       tesseract-ocr-eng \
+       libgomp1 \
     && rm -rf /var/lib/apt/lists/*
 
 # Set JVM memory options only after Java installation. Debian's
-# ca-certificates-java post-install scripts invoke Java with their own small
-# heap limit, so defining JAVA_TOOL_OPTIONS earlier can break apt/dpkg.
+# ca-certificates-java post-install scripts invoke Java during package setup.
 ENV JAVA_TOOL_OPTIONS="-Xmx1536m"
 
 WORKDIR /app
